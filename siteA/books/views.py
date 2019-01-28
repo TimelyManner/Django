@@ -15,3 +15,22 @@ class BooksModelView(TemplateView):
         context['model_list'] = ['Book', 'Author', 'Publisher']
         print(context)
         return context
+    
+    
+class BookList(ListView):    
+    model = Book
+    
+class AuthorList(ListView):
+    model = Author
+    
+class PublisherList(ListView):
+    model = Publisher
+    
+class BookDetail(DetailView):    
+    model = Book
+    
+class AuthorDetail(DetailView):
+    model = Author
+    
+class PublisherDetail(DetailView):
+    model = Publisher
