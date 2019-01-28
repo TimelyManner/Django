@@ -17,6 +17,7 @@
 {% endif %}
 
 {% if question.choice_set.all.count > 0 %}
+<div style="background-color:lightblue">
 	<form action="{% url 'polls:vote' question.id %}" method="post">
 	{% csrf_token %}
 	{% for choice in question.choice_set.all %}
@@ -26,6 +27,7 @@
 	<input type = 'submit' value='Vote' />
 	</form>
 {% endif %}
+</div>
 
 <hr>
 <p> The total # of choices is : {{ question.choice_set.all.count }} <p>
