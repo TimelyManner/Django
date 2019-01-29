@@ -25,7 +25,7 @@ SECRET_KEY = 'dm1^nw4nt2ek=9fea-$!a&o)^!z&+v!34%p^!n^d&#1k13b%0r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['goorungee.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -70,6 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ex1.wsgi.application'
+#hahah#
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -120,3 +121,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'www_dir', 'static')
