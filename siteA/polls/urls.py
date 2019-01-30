@@ -16,7 +16,9 @@ urlpatterns = [
 
 urlpatterns = [    
     path('', myviews.IndexView.as_view(), name='index'),
-    path('<int:pk>/', myviews.ChoiceView.as_view(), name='detail'),
+#    path('<int:pk>/', myviews.ChoiceView.as_view(), name='detail'),
+    path('<int:pk>/vote/', myviews.VoteView.as_view(), name='detail'),
     path('<int:pk>/results/', myviews.ResultView.as_view(), name='results'),
-    path('<int:question_id>/vote/', views.vote, name='vote'),
+#    path('<int:question_id>/vote/', views.vote, name='vote'),
+    path('<int:pk>/vote/', myviews.VoteView.as_view(), name='vote'),
 ]

@@ -1,7 +1,10 @@
 from django import forms
+from django.forms.widgets import RadioSelect
 
-class ContactForm(forms.Form):
-    subject = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
-    sender = forms.EmailField()
-    cc_myself = forms.BooleanField(required=False)  
+class VoteForm(forms.Form):
+    choices = None
+    
+    def __init__(self, options, init, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.initial['choices'] = init
+        self.fields['choices'] = forms.ChoiceField(widget=RadioSelect,choices=options)
