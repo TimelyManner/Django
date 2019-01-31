@@ -47,8 +47,8 @@ class VoteView(generic.FormView):
             
         self.choices = tuple(choice_list)
         self.initial = dict( {choice_list[0]} )
-
-        form = self.form_class(options=self.choices, init=self.initial)        
+        value, label = self.choices[0]
+        form = self.form_class(options=self.choices, init=value)        
         return render(request, self.template_name, {'form': form,'question':question})
 
     def post(self, request, *args, **kwargs):

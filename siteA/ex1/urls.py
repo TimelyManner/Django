@@ -22,4 +22,5 @@ urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
     path('polls/', include('polls.urls')),
     path('books/', include('books.urls')),
+    path('chat/', include('chat.urls')),
 ]
