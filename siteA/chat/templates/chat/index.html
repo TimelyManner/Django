@@ -1,8 +1,16 @@
-<h1> Joon's Chatting Service </h1>
+<h1> A Chatting Service </h1>
 <hr>
 
 <form action="{% url 'chat:index' %}" method="post">
 	{% csrf_token %}
+	<h3> Now, {{ room_list.all | length }} chatroom(s) is open:</h3>
+	{% for room in room_list %}
+		<div style="background-color:lightyellow">
+		<input type='radio' name='choice' value={{room.id}} checked='checked'> <b>{{room.title_text}}</b> 
+		({{room.owner.nickname_text}}:{{room.users.all | length }}) </div>
+		</div>		
+	{% endfor %}
+<!-- 	
 	<div>
 	<h3> Now, {{ form.choices | length }} chatroom(s) is open:</h3>
 	{% for select in form.choices %}
@@ -18,9 +26,10 @@
 	<label>Nick name</label>
 	{{form.nick_name}}
 	</div>
-	
+-->	
+	<hr>
+	Nickname <input type='text' name='nickname'>
 	<div>
 	<input type = 'submit' value='Join' />
-	<input type = 'submit' value='Open' />
 	</div>
 </form>

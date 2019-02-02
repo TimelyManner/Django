@@ -17,6 +17,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='name',
-            field=models.CharField(default='Anoymous', max_length=20, primary_key=True, serialize=False),
+            field=models.CharField(default='Anonymous', max_length=20, primary_key=True, serialize=False),
         ),
     ]
