@@ -6,11 +6,7 @@
 	<div>
 	<h3> Now, {{ form.choices | length }} chatroom(s) is open:</h3>
 	{% for select in form.choices %}
-		{% if forloop.counter == 1 %}
-			<div  style="background-color:lightblue"> {{select}} ( {{select.admin}} ) </div>
-		{% else %}
-			<div  style="background-color:lightyellow"> {{select}} ( {{select.admin}} )</div>
-		{% endif %}		
+		<div  style="background-color:lightblue"> {{select}} ( owner nickname... ) </div>	
 	{% endfor %}
 	</div>
 	
