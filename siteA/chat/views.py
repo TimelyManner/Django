@@ -16,7 +16,7 @@ class IndexView(generic.FormView):
         value = None
         if len(chatrooms) > 0:      
             for i in chatrooms:  
-                room_list.append( (i.id, f'"{i.title}"') )
+                room_list.append( (i.id, f'"{i.title_text}"') )
 #                admin_list.append( models.User.objects.all().get(pk=i.admin_id).nickname )
             value, label = room_list[0]
 
