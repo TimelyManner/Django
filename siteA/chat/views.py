@@ -6,6 +6,7 @@ from chat import models
 from chat import forms
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+import datetime
 
 class IndexView(generic.FormView):
     template_name = 'chat/index.html'
@@ -13,7 +14,8 @@ class IndexView(generic.FormView):
     
     def get(self, request, *args, **kwargs ):        
         chatrooms = models.Chatroom.objects.all()
-        return render(request, self.template_name, {'room_list':chatrooms})     
+        cur_date = datetime.datetime.now()
+        return render(request, self.template_name, {'room_list':chatrooms, 'cur_date':cur_date})     
         '''        
         room_list=[]        
         value = None

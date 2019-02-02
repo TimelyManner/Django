@@ -1,0 +1,55 @@
+{% extends "chat/layout_base.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block header %}
+<h1> Lee's Chatting Service </h1> 
+{% endblock %}
+
+{% block nav %}
+    <ul>
+      <li><a href="#">Create </a></li>
+      <li><a href="#">Join</a></li>
+    </ul>
+{% endblock %}
+
+{% block article %}
+
+<form action="{% url 'chat:index' %}" method="post">
+	{% csrf_token %}
+	<h3> Now, {{ room_list.all | length }} chatroom(s) is open:</h3>
+	{% for room in room_list %}
+		<div style="background-color:lightyellow">
+		<input type='radio' name='choice' value={{room.id}} checked='checked'> <b>{{room.title_text}}</b> 
+		({{room.owner.nickname_text}}:{{room.users.all | length }}) </div>
+		</div>		
+	{% endfor %}
+<!-- 	
+	<div>
+	<h3> Now, {{ form.choices | length }} chatroom(s) is open:</h3>
+	{% for select in form.choices %}
+		<div  style="background-color:lightblue"> {{select}} ( owner nickname... ) </div>	
+	{% endfor %}
+	</div>
+	
+	<hr>
+	<div>	
+	<label>Chat title</label>
+	{{form.chat_title}}
+	
+	<label>Nick name</label>
+	{{form.nick_name}}
+	</div>
+-->	
+	<hr>
+	Nickname <input type='text' name='nickname'>
+	<div>
+	<input type = 'submit' value='Join' />
+	</div>
+</form>
+{% endblock %}
+
+{% block footer %}
+<a href="http://www.papricacare.com">Please, visit Onion's homepage.</a>
+{% endblock %}

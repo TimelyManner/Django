@@ -1,35 +1,44 @@
-<h1> A Chatting Service </h1>
-<hr>
+{% extends "chat/layout_base.html" %}
 
-<form action="{% url 'chat:index' %}" method="post">
-	{% csrf_token %}
-	<h3> Now, {{ room_list.all | length }} chatroom(s) is open:</h3>
-	{% for room in room_list %}
-		<div style="background-color:lightyellow">
-		<input type='radio' name='choice' value={{room.id}} checked='checked'> <b>{{room.title_text}}</b> 
-		({{room.owner.nickname_text}}:{{room.users.all | length }}) </div>
-		</div>		
-	{% endfor %}
-<!-- 	
-	<div>
-	<h3> Now, {{ form.choices | length }} chatroom(s) is open:</h3>
-	{% for select in form.choices %}
-		<div  style="background-color:lightblue"> {{select}} ( owner nickname... ) </div>	
-	{% endfor %}
+{% block title %}
+{% endblock %}
+
+{% block header %}
+<h1> Lee's Chatting Service </h1> 
+{% endblock %}
+
+{% block nav %}
+    <ul>
+      <li><a href="#">Create </a></li>
+      <li><a href="#">Join</a></li>
+    </ul>
+{% endblock %}
+
+{% block article %}
+<h1> Welcome to a simple chatting program! </h1>
+
+<p> Currently, {{ room_list.all | length }} chating room(s) are open:</p>
+<table>
+	<tr>
+		<th>Chatting Theme</th>
+		<th>Room's Owner</th>
+		<th># of Chatters </th>
+		<th>Open Time</th>
+{% for room in room_list %}
+	<tr>
+	<div style="background-color:lightyellow">
+	<td><b>"{{room.title_text}}"</b></td>
+	<td> {{room.owner.nickname_text}} </td>
+	<td> {{room.users.all | length }} </td> 
+	<td> {{room.created_date}} </td>
 	</div>
-	
-	<hr>
-	<div>	
-	<label>Chat title</label>
-	{{form.chat_title}}
-	
-	<label>Nick name</label>
-	{{form.nick_name}}
 	</div>
--->	
-	<hr>
-	Nickname <input type='text' name='nickname'>
-	<div>
-	<input type = 'submit' value='Join' />
-	</div>
-</form>
+	</tr>		
+{% endfor %}
+</table>
+
+{% endblock %}
+
+{% block footer %}
+<a href="http://www.papricacare.com">Please, visit Onion's homepage.</a>
+{% endblock %}
