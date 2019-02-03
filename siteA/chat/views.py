@@ -8,9 +8,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 import datetime
 
-class IndexView(generic.FormView):
+class IndexView(generic.TemplateView):
     template_name = 'chat/index.html'
-    form_class = forms.JoinForm
     
     def get(self, request, *args, **kwargs ):        
         chatrooms = models.Chatroom.objects.all()
@@ -33,3 +32,21 @@ class IndexView(generic.FormView):
         print(f'selected: {selected_choice}, nickname: {input_name}') 
         
         return HttpResponseRedirect(reverse('chat:index'))
+    
+class OpenView(generic.TemplateView):
+    template_name = 'chat/open.html'
+
+    def get(self, request, *args, **kwargs ):
+        return render(request, self.template_name, {})        
+    
+class JoinView(generic.TemplateView):
+    template_name = 'chat/join.html'
+    
+class TalkView(generic.TemplateView):
+    template_name = 'chat/talk.html'
+
+    def get(self, request, *args, **kwargs ):
+        return render(request, self.template_name, {})
+    
+    def post(self, request, *args, **kwargs ):
+        return HttpResponseRedirect(reverse('chat:talk'))

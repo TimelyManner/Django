@@ -1,23 +1,7 @@
-{% extends "chat/layout_base.html" %}
-
-{% block title %}
-{% endblock %}
-
-{% block header %}
-<h1> Lee's Chatting Service </h1> 
-{% endblock %}
-
-{% block nav %}
-    <ul>
-      <li><a href="#">Create </a></li>
-      <li><a href="#">Join</a></li>
-    </ul>
-{% endblock %}
+{% extends "chat/layout.html" %}
 
 {% block article %}
-<h1> Welcome to a simple chatting program! </h1>
-
-<p> Currently, {{ room_list.all | length }} chating room(s) are open:</p>
+<p><b> Currently, {{ room_list.all | length }} chatting room(s) are open:</b></p>
 <table>
 	<tr>
 		<th>Chatting Theme</th>
@@ -37,8 +21,4 @@
 {% endfor %}
 </table>
 
-{% endblock %}
-
-{% block footer %}
-<a href="http://www.papricacare.com">Please, visit Onion's homepage.</a>
 {% endblock %}

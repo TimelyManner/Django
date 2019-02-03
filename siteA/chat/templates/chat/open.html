@@ -1,0 +1,17 @@
+{% extends "chat/layout.html" %}
+
+{% block article %}
+	<p> Fill the fields below, then press the "create and talk" button </p>	
+	<form action="{% url 'chat:talk' %}" method="post">
+		{% csrf_token %}
+		<hr>
+		<ul>
+			<li>Chatting Theme:<br> 
+			<input type="text" name="theme" /> </li>
+			<li>Your Nickname:<br> 
+			<input type="text" name="nickname" /> </li>
+		</ul>
+		<hr>		
+		<input type="submit" value="open and talk" />
+	</form>
+{% endblock %}

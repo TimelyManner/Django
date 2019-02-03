@@ -15,35 +15,53 @@ body {
 
 /* Style the header */
 header {
-  background-color: #666;
+  background-color: #a1a1a1;
   padding: 1px;
   text-align: left;
   font-size: 10px;
   color: white;
+  margin: 0px;  
 }
 
 /* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
-  width: 15%;
-<!--  height: 300px; /* only for demonstration, should be removed */ -->
-  background: #ccc;
-  padding: 5px;
+  width: 10%;
+  padding: 2px;
 }
 
 /* Style the list inside the menu */
 nav ul {
   list-style-type: none;
-  padding: 0;
+  padding: 0px;
+  margin: 0px;  
+}
+
+nav ul li {
+  background: #CCFFCC;  
+  margin: 2px;
+  padding: 5px;
 }
 
 article {
   float: left;
-  padding: 10px;
-  width: 75%;
-  background-color: #f1f1f1;
-<!--  height: 300px; /* only for demonstration, should be removed */ -->
+  padding: 5px;
+  width: 90%;
+/*  background-color: #CCFFCC; */
 }
+
+article ul {
+  list-style-type: square;
+  padding: 0px;
+  margin: 10px;  
+}
+
+article ul li {
+  background: #CCFFCC;  
+  margin: 2px;
+  padding: 5px;
+}
+
 
 /* Clear floats after the columns */
 section:after {
@@ -54,7 +72,7 @@ section:after {
 
 /* Style the footer */
 footer {
-  background-color: #777;
+  background-color: #f1f1f1;
   padding: 10px;
   text-align: left;
   color: white;
@@ -74,15 +92,27 @@ table {
   width: 100%;
 }
 
-td, th {
-  border: 1px solid #dddddd;
+th {
+  border: 1px solid #333333;
+  background-color: #CCFFCC;
+  text-align: center;
+  padding: 8px;
+}
+
+td {
+  border: 1px solid #333333;
   text-align: left;
   padding: 8px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
   background-color: #dddddd;
 }
+
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
 
 </style>
 </head>
