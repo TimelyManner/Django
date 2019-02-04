@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls.apps.PollsConfig',
-    'books.apps.BooksConfig',
+#    'polls.apps.PollsConfig',
+#    'books.apps.BooksConfig',
     'chat.apps.ChatConfig',
 ]
 
