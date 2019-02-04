@@ -2,14 +2,14 @@
 
 {% block article %}
 	<p> Fill the fields below, then press the "create and talk" button </p>	
-	<form action="{% url 'chat:talk' %}" method="post">
+	<form action="{% url 'chat:open' %}" method="post">
 		{% csrf_token %}
 		<hr>
 		<ul>
 			<li>Chatting Theme:<br> 
-			<input type="text" name="theme" /> </li>
+			<input type="text" name="theme" value="No Title"/> </li>
 			<li>Your Nickname:<br> 
-			<input type="text" name="nickname" /> </li>
+			<input type="text" name="nickname" value="Anonymous"/> </li>
 		</ul>
 		<hr>		
 		<input type="submit" value="open and talk" />

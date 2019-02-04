@@ -1,5 +1,11 @@
 {% extends "chat/layout.html" %}
 
 {% block article %}
-<h1> Talk... </h1>
+	{% if chat_room %}
+		<p> We aer opening a chat room: {{chat_room.title_text}} </p>
+	{% else %}
+		<p> A chat room with the request theme title has already been exists or empty.</p>
+		<p> Please, try it again with another theme title. </p>
+	{% endif %}	
+
 {% endblock %}
