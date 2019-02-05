@@ -15,5 +15,4 @@ class User(models.Model):
     is_owner = models.BooleanField(default=False)    
     
     def __str__(self):
-        return self.nickname_text  
- 
+        return self.nickname_text

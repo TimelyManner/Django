@@ -5,7 +5,22 @@
 		<p> Error! : "{{error_msg}}" </p>
 		<p> Please, try it again with another theme title. </p>
 	{% else %}
-		<p> We are opening a chat room: "{{chat_room.title_text}}" owned by "{{user.nickname_text}}" </p>
+		<style>
+			textarea {
+				background-color: #FFFFFF; 
+			}
+			
+			input {
+				background-color: #CCFFCC;
+			}
+		</style>
+		
+		<form action="{% url 'chat:enter' pk=chat_room.id chatter_id=user.id %}" method="post">  
+			{% csrf_token %}
+			{{form.talk_area}}<br>
+			{{form.input_text}}			
+			<input type='button' value='Send'/>
+		</form>  
 	{% endif %}	
 
 {% endblock %}

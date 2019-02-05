@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from chat.models import User, Chatroom
+from chat import models
 '''
 class ChatroomAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -14,5 +14,5 @@ class ChatroomAdmin(admin.ModelAdmin):
     list_filter = ['created_date']
     search_fields = ['title_text']
 '''
-admin.site.register(User)
-admin.site.register(Chatroom)
+admin.site.register(models.User)
+admin.site.register(models.Chatroom)

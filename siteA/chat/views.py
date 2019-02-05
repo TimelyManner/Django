@@ -1,9 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from django.views import generic
-from chat import models
-from chat import forms
+from chat import forms, models
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 import datetime
@@ -65,7 +64,7 @@ class OpenView(generic.TemplateView):
                 chatroom.save()
                 user = models.User(nickname_text=nickname, created_date=datetime.datetime.now(), 
                                    chatroom=chatroom, is_owner=True)
-                user.save()                
+                user.save()                                
                 return HttpResponseRedirect(reverse('chat:enter', args=(chatroom.id,user.id)))
         else:
             return HttpResponseRedirect(reverse('chat:enter',                                             
@@ -74,19 +73,32 @@ class OpenView(generic.TemplateView):
 class JoinView(generic.TemplateView):
     template_name = 'chat/join.html'
     
-class EnterView(generic.TemplateView):
+class EnterView(generic.FormView):
     template_name = 'chat/enter.html'
+    form_class = forms.EnterForm
 
     def get(self, request, *args, **kwargs ):
         try:
             error_msg = kwargs['error_msg']
             chatroom = None
             user = None            
+            form = None
+            # error happens
         except KeyError:        
             error_msg = None
             chatroom = models.Chatroom.objects.all().get(pk=kwargs['pk'])
-            user = models.User.objects.all().get(pk=kwargs['chatter_id'])
-        return render(request, self.template_name, {'chat_room':chatroom, 'user':user, 'error_msg':error_msg })        
+            user = models.User.objects.all().get(pk=kwargs['chatter_id'])            
+            
+            try:
+                msg = kwargs['msg']
+                
+            except KeyError:                
+                form = self.form_class( initial=
+                                       {'talk_area':f'Welcome to "{user.nickname_text}"!!!\n-------------------------\n'} )
+                # welcome message for the first entrance           
+        return render(request, self.template_name, {'form':form, 'chat_room':chatroom, 'user':user, 'error_msg':error_msg })        
     
     def post(self, request, *args, **kwargs ):
-        return HttpResponseRedirect(reverse('chat:enter'))
+       form = forms.EnterForm(request.POST)       
+       msg = form.get_data()['input_text']
+       return HttpResponseRedirect(reverse('chat:enter', args=(kwargs['pk'],kwargs['chatter_id'],msg)))
