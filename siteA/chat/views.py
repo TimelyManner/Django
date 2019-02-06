@@ -91,10 +91,10 @@ class EnterView(generic.FormView):
             
             try:
                 msg = kwargs['msg']
-                
+                # when a message's been sent                
             except KeyError:                
                 form = self.form_class( initial=
-                                       {'talk_area':f'Welcome to "{user.nickname_text}"!!!\n-------------------------\n'} )
+                                       {'talk_area':f'"{user.nickname_text}" has joined~\n'} )
                 # welcome message for the first entrance           
         return render(request, self.template_name, {'form':form, 'chat_room':chatroom, 'user':user, 'error_msg':error_msg })        
     

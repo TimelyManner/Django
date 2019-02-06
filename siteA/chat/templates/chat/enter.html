@@ -15,12 +15,34 @@
 			}
 		</style>
 		
-		<form action="{% url 'chat:enter' pk=chat_room.id chatter_id=user.id %}" method="post">  
+		<form onsubmit="return false;" action="{% url 'chat:enter' pk=chat_room.id chatter_id=user.id %}" method="post">  
 			{% csrf_token %}
+
 			{{form.talk_area}}<br>
 			{{form.input_text}}			
-			<input type='button' value='Send'/>
-		</form>  
-	{% endif %}	
+			<button id='send_button'> Send </button>
+			<button id='exit_button'> Exit </button>		
+	{% endif %}
+		<p id='nickname' hidden> {{user.nickname_text}}</p>
+		<script>
+			$(document).ready( function () {
+				var f = function () {
+					var nickname = $('#nickname').text();
+					var input = $('#input_text');					
+					var talk = $('#talk_area');
+					talk.val(talk.val()+ nickname + ': '+input.val()+'\n');
+					input.val('');					
+				}
+				
+				$('#send_button').click(f);
+				$('#input_text').keydown( function(event){				
+					if ( event.which == 13 ) {
+						f();
+						event.preventDefault();
+					} 				
+				});
+			});
+		</script>	
+		</form>
 
 {% endblock %}
