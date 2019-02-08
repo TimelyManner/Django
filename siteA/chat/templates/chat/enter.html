@@ -15,14 +15,14 @@
 			}
 		</style>
 		
-		<form onsubmit="return false;" action="{% url 'chat:enter' pk=chat_room.id chatter_id=user.id %}" method="post">  
+		<form action="{% url 'chat:talk' pk=chat_room.id chatter_id=user.id %}" method="post">  
 			{% csrf_token %}
 
 			{{form.talk_area}}<br>
 			{{form.input_text}}			
-			<button id='send_button'> Send </button>
-			<button id='exit_button'> Exit </button>		
+			<button id='send_button' type='submit'> Send </button>	
 	{% endif %}
+<!-- 
 		<p id='nickname' hidden> {{user.nickname_text}}</p>
 		<script>
 			$(document).ready( function () {
@@ -43,6 +43,7 @@
 				});
 			});
 		</script>	
+ -->
 		</form>
 
 {% endblock %}

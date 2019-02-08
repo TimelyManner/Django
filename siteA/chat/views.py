@@ -7,7 +7,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 import datetime
 from django.core.exceptions import ObjectDoesNotExist 
-from model_utils.fields import AutoCreatedField
 
 class ChatInfo:
     title = None
@@ -88,17 +87,49 @@ class EnterView(generic.FormView):
             error_msg = None
             chatroom = models.Chatroom.objects.all().get(pk=kwargs['pk'])
             user = models.User.objects.all().get(pk=kwargs['chatter_id'])            
-            
-            try:
-                msg = kwargs['msg']
-                # when a message's been sent                
-            except KeyError:                
-                form = self.form_class( initial=
-                                       {'talk_area':f'"{user.nickname_text}" has joined~\n'} )
-                # welcome message for the first entrance           
+            form = self.form_class( initial=
+                {'talk_area':f'"{user.nickname_text}" has joined~\n'} )          
         return render(request, self.template_name, {'form':form, 'chat_room':chatroom, 'user':user, 'error_msg':error_msg })        
     
     def post(self, request, *args, **kwargs ):
-       form = forms.EnterForm(request.POST)       
-       msg = form.get_data()['input_text']
-       return HttpResponseRedirect(reverse('chat:enter', args=(kwargs['pk'],kwargs['chatter_id'],msg)))
+        form = forms.EnterForm(request.POST)       
+        msg = form.get_data()['input_text']
+        talk = form.talk_area.get_data['talk_area']
+        nickname = models.User.objects.all().get(pk=kwargs['chatter_id'])
+        talk = talk + nickname + ': '+msg+'\n'
+        form.talk_area.cleaned_data['talk_area'] = talk
+        
+        return HttpResponseRedirect(reverse('chat:talk', args=(kwargs['pk'],kwargs['chatter_id'])))
+
+temp_talk_area = None
+
+class TalkView(generic.FormView):
+    template_name = 'chat/enter.html'
+    form_class = forms.EnterForm
+
+    def get(self, request, *args, **kwargs ):
+        global temp_talk_area
+
+        chatroom = models.Chatroom.objects.all().get(pk=kwargs['pk'])
+        user = models.User.objects.all().get(pk=kwargs['chatter_id'])            
+        form = self.form_class(initial=
+                {'talk_area':temp_talk_area} )            
+        return render(request, self.template_name, {'form':form, 'chat_room':chatroom, 'user':user})        
+  
+        
+    def post(self, request, *args, **kwargs ):
+        global temp_talk_area
+
+        form = forms.EnterForm(request.POST)       
+        msg = form.get_data()['input_text']
+        talk = form.get_data()['talk_area']
+        nickname = models.User.objects.all().get(pk=kwargs['chatter_id']).nickname_text
+        talk = f'{talk} {nickname} : "{msg}"\n'
+        temp_talk_area = talk
+        
+        error_msg = None
+        chatroom = models.Chatroom.objects.all().get(pk=kwargs['pk'])
+        user = models.User.objects.all().get(pk=kwargs['chatter_id']) 
+        
+        return HttpResponseRedirect(reverse('chat:talk', args=(kwargs['pk'],kwargs['chatter_id'])))
+  
