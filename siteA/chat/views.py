@@ -68,7 +68,10 @@ class OpenView(generic.TemplateView):
         else:
             return HttpResponseRedirect(reverse('chat:enter',                                             
                                         args=('The chat theme or nickname has been empty.',)))
-    
+
+
+temp_talk_area = ''
+
 class JoinView(generic.TemplateView):
     template_name = 'chat/join.html'
     
@@ -77,6 +80,7 @@ class EnterView(generic.FormView):
     form_class = forms.EnterForm
 
     def get(self, request, *args, **kwargs ):
+        global temp_talk_area
         try:
             error_msg = kwargs['error_msg']
             chatroom = None
@@ -87,21 +91,17 @@ class EnterView(generic.FormView):
             error_msg = None
             chatroom = models.Chatroom.objects.all().get(pk=kwargs['pk'])
             user = models.User.objects.all().get(pk=kwargs['chatter_id'])            
-            form = self.form_class( initial=
-                {'talk_area':f'"{user.nickname_text}" has joined~\n'} )          
-        return render(request, self.template_name, {'form':form, 'chat_room':chatroom, 'user':user, 'error_msg':error_msg })        
+            form = self.form_class()          
+            temp_talk_area = f'"{user.nickname_text}" has joined~<br>'
+        return render(request, self.template_name, {'form':form, 'chat_room':chatroom, 'user':user, 'error_msg':error_msg, 'msg': temp_talk_area })        
     
     def post(self, request, *args, **kwargs ):
         form = forms.EnterForm(request.POST)       
         msg = form.get_data()['input_text']
         talk = form.talk_area.get_data['talk_area']
         nickname = models.User.objects.all().get(pk=kwargs['chatter_id'])
-        talk = talk + nickname + ': '+msg+'\n'
-        form.talk_area.cleaned_data['talk_area'] = talk
-        
+        talk = talk + nickname + ': '+msg        
         return HttpResponseRedirect(reverse('chat:talk', args=(kwargs['pk'],kwargs['chatter_id'])))
-
-temp_talk_area = None
 
 class TalkView(generic.FormView):
     template_name = 'chat/enter.html'
@@ -111,25 +111,22 @@ class TalkView(generic.FormView):
         global temp_talk_area
 
         chatroom = models.Chatroom.objects.all().get(pk=kwargs['pk'])
-        user = models.User.objects.all().get(pk=kwargs['chatter_id'])            
-        form = self.form_class(initial=
-                {'talk_area':temp_talk_area} )            
-        return render(request, self.template_name, {'form':form, 'chat_room':chatroom, 'user':user})        
+        user = models.User.objects.all().get(pk=kwargs['chatter_id'])
+        form = self.form_class()           
+        return render(request, self.template_name, {'form':form, 'chat_room':chatroom, 'user':user, 'msg':temp_talk_area})        
   
         
     def post(self, request, *args, **kwargs ):
         global temp_talk_area
 
-        form = forms.EnterForm(request.POST)       
+        form = forms.EnterForm(request.POST)
+        print(form.get_data())        
         msg = form.get_data()['input_text']
-        talk = form.get_data()['talk_area']
+        
+#        talk = form.get_data()['talk_area']
         nickname = models.User.objects.all().get(pk=kwargs['chatter_id']).nickname_text
-        talk = f'{talk} {nickname} : "{msg}"\n'
-        temp_talk_area = talk
+        talk = f'{nickname} : "{msg}"<br>'
+        temp_talk_area += talk        
         
-        error_msg = None
-        chatroom = models.Chatroom.objects.all().get(pk=kwargs['pk'])
-        user = models.User.objects.all().get(pk=kwargs['chatter_id']) 
-        
-        return HttpResponseRedirect(reverse('chat:talk', args=(kwargs['pk'],kwargs['chatter_id'])))
+        return HttpResponseRedirect(reverse('chat:talk', args=(kwargs['pk'],kwargs['chatter_id'],msg)))
   

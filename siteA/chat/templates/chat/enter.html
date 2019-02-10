@@ -1,5 +1,9 @@
 {% extends "chat/layout.html" %}
 
+{% block header %}
+<h1> Talking on "{{chat_room.title_text}}" </h1>	
+{% endblock %}
+
 {% block article %}
 	{% if error_msg %}
 		<p> Error! : "{{error_msg}}" </p>
@@ -13,14 +17,31 @@
 			input {
 				background-color: #CCFFCC;
 			}
+			
+			div.chat {
+				display: block;
+				overflow-y:auto;
+				width: 300px;
+				height: 150px;
+				border-style: solid;
+				border-color: yellow;
+				border-width: 1px;
+				margin: 5px;
+				padding: 5px;
+				background-color: lightyellow;
+				font-size: 10px;
+			}
 		</style>
+				
+		<div id='talk_area' class='chat'> {{msg|safe}} </div>
 		
-		<form action="{% url 'chat:talk' pk=chat_room.id chatter_id=user.id %}" method="post">  
+		<form action="{% url 'chat:talk' pk=chat_room.id chatter_id=user.id msg=form.input_text.value %}" method="post">  
 			{% csrf_token %}
-
-			{{form.talk_area}}<br>
-			{{form.input_text}}			
-			<button id='send_button' type='submit'> Send </button>	
+<!-- 		{{form.talk_area}}<br> -->
+			{{form.input_text}}
+			<input type='submit' value='Send'>
+		</form>		 		
+				
 	{% endif %}
 <!-- 
 		<p id='nickname' hidden> {{user.nickname_text}}</p>
@@ -44,6 +65,6 @@
 			});
 		</script>	
  -->
-		</form>
+
 
 {% endblock %}
