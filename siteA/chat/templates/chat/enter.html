@@ -1,7 +1,7 @@
 {% extends "chat/layout.html" %}
 
 {% block header %}
-<h1> Talking on "{{chat_room.title_text}}" </h1>	
+<h1> Talking on "<b>{{chat_room.title_text}}</b>" among {{chat_room.user_set.all.count}} person(s) </h1>	
 {% endblock %}
 
 {% block article %}
@@ -28,7 +28,7 @@
 				margin: 0px;
 				padding: 2px;
 				background-color: lightyellow;
-				font-size: 10px;
+				font-size: 14px;
 			}
 		</style>
 				
@@ -54,6 +54,10 @@
 			
 			$(document).resize(f_adapt);	
 			$(document).ready(f_adapt);
+			
+			setInterval(function () {
+				window.location.reload(true);
+			}, 1500);
 
 		</script>
 <!-- 

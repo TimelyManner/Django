@@ -23,4 +23,5 @@ urlpatterns = [
 #    path('polls/', include('polls.urls')),
 #    path('books/', include('books.urls')),
     path('chat/', include('chat.urls')),
+    path('mypharm/', include('mypharm.urls')),
 ]

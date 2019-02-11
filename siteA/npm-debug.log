@@ -1,0 +1,873 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install', 'node' ]
+2 info using npm@3.3.12
+3 info using node@v5.1.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData node
+8 silly fetchNamedPackageData node
+9 silly mapToRegistry name node
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/node
+13 verbose request uri https://registry.npmjs.org/node
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 16:41:28
+16 verbose request id 10ada9965f7c10e9
+17 http request GET https://registry.npmjs.org/node
+18 http 200 https://registry.npmjs.org/node
+19 verbose headers { date: 'Mon, 11 Feb 2019 07:41:29 GMT',
+19 verbose headers   'content-type': 'application/json',
+19 verbose headers   'transfer-encoding': 'chunked',
+19 verbose headers   connection: 'keep-alive',
+19 verbose headers   'set-cookie': [ '__cfduid=dc0a212e9706d8ceca53557e15840526c1549870888; expires=Tue, 11-Feb-20 07:41:28 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+19 verbose headers   'cf-cache-status': 'REVALIDATED',
+19 verbose headers   'cache-control': 'max-age=300',
+19 verbose headers   'cf-ray': '4a752c5fec63a1af-ICN',
+19 verbose headers   etag: 'W/"bee8cc8af582a07fe4ea6e124b6a72c1"',
+19 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+19 verbose headers   'last-modified': 'Fri, 01 Feb 2019 01:06:20 GMT',
+19 verbose headers   vary: 'accept-encoding, accept',
+19 verbose headers   'x-amz-meta-rev': '461-86b99bce4c295b22c7a835c1c297d61c',
+19 verbose headers   server: 'cloudflare',
+19 verbose headers   'content-encoding': 'gzip' }
+20 silly get cb [ 200,
+20 silly get   { date: 'Mon, 11 Feb 2019 07:41:29 GMT',
+20 silly get     'content-type': 'application/json',
+20 silly get     'transfer-encoding': 'chunked',
+20 silly get     connection: 'keep-alive',
+20 silly get     'set-cookie': [ '__cfduid=dc0a212e9706d8ceca53557e15840526c1549870888; expires=Tue, 11-Feb-20 07:41:28 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+20 silly get     'cf-cache-status': 'REVALIDATED',
+20 silly get     'cache-control': 'max-age=300',
+20 silly get     'cf-ray': '4a752c5fec63a1af-ICN',
+20 silly get     etag: 'W/"bee8cc8af582a07fe4ea6e124b6a72c1"',
+20 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+20 silly get     'last-modified': 'Fri, 01 Feb 2019 01:06:20 GMT',
+20 silly get     vary: 'accept-encoding, accept',
+20 silly get     'x-amz-meta-rev': '461-86b99bce4c295b22c7a835c1c297d61c',
+20 silly get     server: 'cloudflare',
+20 silly get     'content-encoding': 'gzip' } ]
+21 verbose get saving node to /Users/jslee/.npm/registry.npmjs.org/node/.cache.json
+22 silly install normalizeTree
+23 silly loadCurrentTree Finishing
+24 silly loadIdealTree Starting
+25 silly install loadIdealTree
+26 silly cloneCurrentTree Starting
+27 silly install cloneCurrentTreeToIdealTree
+28 silly cloneCurrentTree Finishing
+29 silly loadShrinkwrap Starting
+30 silly install loadShrinkwrap
+31 silly loadShrinkwrap Finishing
+32 silly loadAllDepsIntoIdealTree Starting
+33 silly install loadAllDepsIntoIdealTree
+34 warn engine node@11.9.0: wanted: {"npm":">=5.0.0"} (current: {"node":"5.1.0","npm":"3.3.12"})
+35 silly resolveWithNewModule node@11.9.0 checking installable status
+36 warn engine node@11.9.0: wanted: {"npm":">=5.0.0"} (current: {"node":"5.1.0","npm":"3.3.12"})
+37 silly cache add args [ 'node', null ]
+38 verbose cache add spec node
+39 silly cache add parsed spec Result {
+39 silly cache add   raw: 'node',
+39 silly cache add   scope: null,
+39 silly cache add   name: 'node',
+39 silly cache add   rawSpec: '',
+39 silly cache add   spec: '*',
+39 silly cache add   type: 'range' }
+40 silly addNamed node@*
+41 verbose addNamed "*" is a valid semver range for node
+42 silly addNameRange { name: 'node', range: '*', hasData: false }
+43 silly mapToRegistry name node
+44 silly mapToRegistry using default registry
+45 silly mapToRegistry registry https://registry.npmjs.org/
+46 silly mapToRegistry uri https://registry.npmjs.org/node
+47 verbose addNameRange registry:https://registry.npmjs.org/node not in flight; fetching
+48 verbose get https://registry.npmjs.org/node not expired, no request
+49 silly addNameRange number 2 { name: 'node', range: '*', hasData: true }
+50 silly addNameRange versions [ 'node',
+50 silly addNameRange   [ '0.0.0',
+50 silly addNameRange     '0.1.14',
+50 silly addNameRange     '0.1.15',
+50 silly addNameRange     '0.1.16',
+50 silly addNameRange     '0.1.17',
+50 silly addNameRange     '0.1.18',
+50 silly addNameRange     '0.1.19',
+50 silly addNameRange     '0.1.20',
+50 silly addNameRange     '0.1.21',
+50 silly addNameRange     '0.1.22',
+50 silly addNameRange     '0.1.23',
+50 silly addNameRange     '0.1.24',
+50 silly addNameRange     '0.1.25',
+50 silly addNameRange     '0.1.26',
+50 silly addNameRange     '0.1.27',
+50 silly addNameRange     '0.1.28',
+50 silly addNameRange     '0.1.29',
+50 silly addNameRange     '0.1.30',
+50 silly addNameRange     '0.1.31',
+50 silly addNameRange     '0.1.32',
+50 silly addNameRange     '0.1.33',
+50 silly addNameRange     '0.1.90',
+50 silly addNameRange     '0.1.91',
+50 silly addNameRange     '0.1.92',
+50 silly addNameRange     '0.1.93',
+50 silly addNameRange     '0.1.94',
+50 silly addNameRange     '0.1.95',
+50 silly addNameRange     '0.1.96',
+50 silly addNameRange     '0.1.97',
+50 silly addNameRange     '0.1.98',
+50 silly addNameRange     '0.1.99',
+50 silly addNameRange     '0.1.100',
+50 silly addNameRange     '0.1.101',
+50 silly addNameRange     '0.1.102',
+50 silly addNameRange     '0.1.103',
+50 silly addNameRange     '0.1.104',
+50 silly addNameRange     '0.2.0',
+50 silly addNameRange     '0.2.1',
+50 silly addNameRange     '0.2.2',
+50 silly addNameRange     '0.2.3',
+50 silly addNameRange     '0.2.4',
+50 silly addNameRange     '0.2.5',
+50 silly addNameRange     '0.2.6',
+50 silly addNameRange     '0.3.0',
+50 silly addNameRange     '0.3.1',
+50 silly addNameRange     '0.3.2',
+50 silly addNameRange     '0.3.3',
+50 silly addNameRange     '0.3.4',
+50 silly addNameRange     '0.3.5',
+50 silly addNameRange     '0.3.6',
+50 silly addNameRange     '0.3.7',
+50 silly addNameRange     '0.3.8',
+50 silly addNameRange     '0.4.0',
+50 silly addNameRange     '0.4.1',
+50 silly addNameRange     '0.4.2',
+50 silly addNameRange     '0.4.3',
+50 silly addNameRange     '0.4.4',
+50 silly addNameRange     '0.4.5',
+50 silly addNameRange     '0.4.6',
+50 silly addNameRange     '0.4.7',
+50 silly addNameRange     '0.4.8',
+50 silly addNameRange     '0.4.9',
+50 silly addNameRange     '0.4.10',
+50 silly addNameRange     '0.4.11',
+50 silly addNameRange     '0.4.12',
+50 silly addNameRange     '0.5.0',
+50 silly addNameRange     '0.5.1',
+50 silly addNameRange     '0.5.2',
+50 silly addNameRange     '0.5.3',
+50 silly addNameRange     '0.5.4',
+50 silly addNameRange     '0.5.5',
+50 silly addNameRange     '0.5.6',
+50 silly addNameRange     '0.5.7',
+50 silly addNameRange     '0.5.8',
+50 silly addNameRange     '0.5.9',
+50 silly addNameRange     '0.5.10',
+50 silly addNameRange     '0.6.0',
+50 silly addNameRange     '0.6.1',
+50 silly addNameRange     '0.6.2',
+50 silly addNameRange     '0.6.3',
+50 silly addNameRange     '0.6.4',
+50 silly addNameRange     '0.6.5',
+50 silly addNameRange     '0.6.6',
+50 silly addNameRange     '0.6.7',
+50 silly addNameRange     '0.6.8',
+50 silly addNameRange     '0.6.9',
+50 silly addNameRange     '0.6.10',
+50 silly addNameRange     '0.6.11',
+50 silly addNameRange     '0.6.12',
+50 silly addNameRange     '0.6.13',
+50 silly addNameRange     '0.6.14',
+50 silly addNameRange     '0.6.15',
+50 silly addNameRange     '0.6.16',
+50 silly addNameRange     '0.6.17',
+50 silly addNameRange     '0.6.18',
+50 silly addNameRange     '0.6.19',
+50 silly addNameRange     '0.6.20',
+50 silly addNameRange     '0.6.21',
+50 silly addNameRange     '0.7.0',
+50 silly addNameRange     '0.7.1',
+50 silly addNameRange     '0.7.2',
+50 silly addNameRange     '0.7.3',
+50 silly addNameRange     '0.7.4',
+50 silly addNameRange     '0.7.5',
+50 silly addNameRange     '0.7.6',
+50 silly addNameRange     '0.7.7',
+50 silly addNameRange     '0.7.8',
+50 silly addNameRange     '0.7.9',
+50 silly addNameRange     '0.7.10',
+50 silly addNameRange     '0.7.11',
+50 silly addNameRange     '0.7.12',
+50 silly addNameRange     '0.8.0',
+50 silly addNameRange     '0.8.1',
+50 silly addNameRange     '0.8.2',
+50 silly addNameRange     '0.8.3',
+50 silly addNameRange     '0.8.4',
+50 silly addNameRange     '0.8.5',
+50 silly addNameRange     '0.8.6',
+50 silly addNameRange     '0.8.7',
+50 silly addNameRange     '0.8.8',
+50 silly addNameRange     '0.8.9',
+50 silly addNameRange     '0.8.10',
+50 silly addNameRange     '0.8.11',
+50 silly addNameRange     '0.8.12',
+50 silly addNameRange     '0.8.13',
+50 silly addNameRange     '0.8.14',
+50 silly addNameRange     '0.8.15',
+50 silly addNameRange     '0.8.16',
+50 silly addNameRange     '0.8.17',
+50 silly addNameRange     '0.8.18',
+50 silly addNameRange     '0.8.19',
+50 silly addNameRange     '0.8.20',
+50 silly addNameRange     '0.8.21',
+50 silly addNameRange     '0.8.22',
+50 silly addNameRange     '0.8.23',
+50 silly addNameRange     '0.8.24',
+50 silly addNameRange     '0.8.25',
+50 silly addNameRange     '0.8.26',
+50 silly addNameRange     '0.8.27',
+50 silly addNameRange     '0.8.28',
+50 silly addNameRange     '0.9.0',
+50 silly addNameRange     '0.9.1',
+50 silly addNameRange     '0.9.2',
+50 silly addNameRange     '0.9.3',
+50 silly addNameRange     '0.9.4',
+50 silly addNameRange     '0.9.5',
+50 silly addNameRange     '0.9.6',
+50 silly addNameRange     '0.9.7',
+50 silly addNameRange     '0.9.8',
+50 silly addNameRange     '0.9.9',
+50 silly addNameRange     '0.9.10',
+50 silly addNameRange     '0.9.11',
+50 silly addNameRange     '0.9.12',
+50 silly addNameRange     '0.10.0',
+50 silly addNameRange     '0.10.1',
+50 silly addNameRange     '0.10.2',
+50 silly addNameRange     '0.10.3',
+50 silly addNameRange     '0.10.4',
+50 silly addNameRange     '0.10.5',
+50 silly addNameRange     '0.10.6',
+50 silly addNameRange     '0.10.7',
+50 silly addNameRange     '0.10.8',
+50 silly addNameRange     '0.10.9',
+50 silly addNameRange     '0.10.10',
+50 silly addNameRange     '0.10.11',
+50 silly addNameRange     '0.10.12',
+50 silly addNameRange     '0.10.13',
+50 silly addNameRange     '0.10.14',
+50 silly addNameRange     '0.10.15',
+50 silly addNameRange     '0.10.16',
+50 silly addNameRange     '0.10.17',
+50 silly addNameRange     '0.10.18',
+50 silly addNameRange     '0.10.19',
+50 silly addNameRange     '0.10.20',
+50 silly addNameRange     '0.10.21',
+50 silly addNameRange     '0.10.22',
+50 silly addNameRange     '0.10.23',
+50 silly addNameRange     '0.10.24',
+50 silly addNameRange     '0.10.25',
+50 silly addNameRange     '0.10.26',
+50 silly addNameRange     '0.10.27',
+50 silly addNameRange     '0.10.28',
+50 silly addNameRange     '0.10.29',
+50 silly addNameRange     '0.10.30',
+50 silly addNameRange     '0.10.31',
+50 silly addNameRange     '0.10.32',
+50 silly addNameRange     '0.10.33',
+50 silly addNameRange     '0.10.34',
+50 silly addNameRange     '0.10.35',
+50 silly addNameRange     '0.10.36',
+50 silly addNameRange     '0.10.37',
+50 silly addNameRange     '0.10.38',
+50 silly addNameRange     '0.10.39',
+50 silly addNameRange     '0.10.40',
+50 silly addNameRange     '0.10.41',
+50 silly addNameRange     '0.10.42',
+50 silly addNameRange     '0.10.43',
+50 silly addNameRange     '0.10.44',
+50 silly addNameRange     '0.10.45',
+50 silly addNameRange     '0.10.46',
+50 silly addNameRange     '0.10.47',
+50 silly addNameRange     '0.10.48',
+50 silly addNameRange     '0.11.0',
+50 silly addNameRange     '0.11.1',
+50 silly addNameRange     '0.11.2',
+50 silly addNameRange     '0.11.3',
+50 silly addNameRange     '0.11.4',
+50 silly addNameRange     '0.11.5',
+50 silly addNameRange     '0.11.6',
+50 silly addNameRange     '0.11.7',
+50 silly addNameRange     '0.11.8',
+50 silly addNameRange     '0.11.9',
+50 silly addNameRange     '0.11.10',
+50 silly addNameRange     '0.11.11',
+50 silly addNameRange     '0.11.12',
+50 silly addNameRange     '0.11.13',
+50 silly addNameRange     '0.11.14',
+50 silly addNameRange     '0.11.15',
+50 silly addNameRange     '0.11.16',
+50 silly addNameRange     '0.12.0',
+50 silly addNameRange     '0.12.1',
+50 silly addNameRange     '0.12.2',
+50 silly addNameRange     '0.12.3',
+50 silly addNameRange     '0.12.4',
+50 silly addNameRange     '0.12.5',
+50 silly addNameRange     '0.12.6',
+50 silly addNameRange     '0.12.7',
+50 silly addNameRange     '0.12.8',
+50 silly addNameRange     '0.12.9',
+50 silly addNameRange     '0.12.10',
+50 silly addNameRange     '0.12.11',
+50 silly addNameRange     '0.12.12',
+50 silly addNameRange     '0.12.13',
+50 silly addNameRange     '0.12.14',
+50 silly addNameRange     '0.12.15',
+50 silly addNameRange     '0.12.16',
+50 silly addNameRange     '0.12.17',
+50 silly addNameRange     '0.12.18',
+50 silly addNameRange     '4.0.0',
+50 silly addNameRange     '4.1.0',
+50 silly addNameRange     '4.1.1',
+50 silly addNameRange     '4.1.2',
+50 silly addNameRange     '4.2.0',
+50 silly addNameRange     '4.2.1',
+50 silly addNameRange     '4.2.2',
+50 silly addNameRange     '4.2.3',
+50 silly addNameRange     '4.2.4',
+50 silly addNameRange     '4.2.5',
+50 silly addNameRange     '4.2.6',
+50 silly addNameRange     '4.3.0',
+50 silly addNameRange     '4.3.1',
+50 silly addNameRange     '4.3.2',
+50 silly addNameRange     '4.4.0',
+50 silly addNameRange     '4.4.1',
+50 silly addNameRange     '4.4.2',
+50 silly addNameRange     '4.4.3',
+50 silly addNameRange     '4.4.4',
+50 silly addNameRange     '4.4.5',
+50 silly addNameRange     '4.4.6',
+50 silly addNameRange     '4.4.7',
+50 silly addNameRange     '4.5.0',
+50 silly addNameRange     '4.6.0',
+50 silly addNameRange     '4.6.1',
+50 silly addNameRange     '4.6.2',
+50 silly addNameRange     '4.7.0',
+50 silly addNameRange     '4.7.1',
+50 silly addNameRange     '4.7.2',
+50 silly addNameRange     '4.7.3',
+50 silly addNameRange     '4.8.0',
+50 silly addNameRange     '4.8.1',
+50 silly addNameRange     '4.8.2',
+50 silly addNameRange     '4.8.3',
+50 silly addNameRange     '4.8.4',
+50 silly addNameRange     '5.0.0',
+50 silly addNameRange     '5.1.0',
+50 silly addNameRange     '5.1.1',
+50 silly addNameRange     '5.2.0',
+50 silly addNameRange     '5.3.0',
+50 silly addNameRange     '5.4.0',
+50 silly addNameRange     '5.4.1',
+50 silly addNameRange     '5.5.0',
+50 silly addNameRange     '5.6.0',
+50 silly addNameRange     '5.7.0',
+50 silly addNameRange     '5.7.1',
+50 silly addNameRange     '5.8.0',
+50 silly addNameRange     '5.9.0',
+50 silly addNameRange     '5.9.1',
+50 silly addNameRange     '5.10.0',
+50 silly addNameRange     '5.10.1',
+50 silly addNameRange     '5.11.0',
+50 silly addNameRange     '5.11.1',
+50 silly addNameRange     '5.12.0',
+50 silly addNameRange     '6.0.0',
+50 silly addNameRange     '6.1.0',
+50 silly addNameRange     '6.2.0',
+50 silly addNameRange     '6.2.1',
+50 silly addNameRange     '6.2.2',
+50 silly addNameRange     '6.3.0',
+50 silly addNameRange     '6.3.1',
+50 silly addNameRange     '6.4.0',
+50 silly addNameRange     '6.5.0',
+50 silly addNameRange     '6.6.0',
+50 silly addNameRange     '6.7.0',
+50 silly addNameRange     '6.8.0',
+50 silly addNameRange     '6.8.1',
+50 silly addNameRange     '6.9.0',
+50 silly addNameRange     '6.9.1',
+50 silly addNameRange     '6.9.2',
+50 silly addNameRange     '6.9.3',
+50 silly addNameRange     '6.9.4',
+50 silly addNameRange     '6.9.5',
+50 silly addNameRange     '6.10.0',
+50 silly addNameRange     '6.10.1',
+50 silly addNameRange     '6.10.2',
+50 silly addNameRange     '6.10.3',
+50 silly addNameRange     '6.11.0',
+50 silly addNameRange     '6.11.1',
+50 silly addNameRange     '7.0.0',
+50 silly addNameRange     '7.1.0',
+50 silly addNameRange     '7.2.0',
+50 silly addNameRange     '7.2.1',
+50 silly addNameRange     '7.3.0',
+50 silly addNameRange     '7.4.0',
+50 silly addNameRange     '7.5.0',
+50 silly addNameRange     '7.6.0',
+50 silly addNameRange     '7.7.0',
+50 silly addNameRange     '7.7.1',
+50 silly addNameRange     '7.7.2',
+50 silly addNameRange     '7.7.3',
+50 silly addNameRange     '7.7.4',
+50 silly addNameRange     '7.8.0',
+50 silly addNameRange     '7.9.0',
+50 silly addNameRange     '7.10.0',
+50 silly addNameRange     '7.10.1',
+50 silly addNameRange     '8.0.0',
+50 silly addNameRange     '8.1.0',
+50 silly addNameRange     '8.1.1',
+50 silly addNameRange     '8.1.2',
+50 silly addNameRange     '8.1.3',
+50 silly addNameRange     '8.1.4',
+50 silly addNameRange     '8.2.0',
+50 silly addNameRange     '8.2.1',
+50 silly addNameRange     '8.3.0',
+50 silly addNameRange     '8.4.0',
+50 silly addNameRange     '8.5.0',
+50 silly addNameRange     '8.6.0',
+50 silly addNameRange     '8.7.0',
+50 silly addNameRange     '8.8.0',
+50 silly addNameRange     '8.8.1',
+50 silly addNameRange     '8.9.0',
+50 silly addNameRange     '9.0.0',
+50 silly addNameRange     '4.8.6',
+50 silly addNameRange     '6.12.0',
+50 silly addNameRange     '9.1.0',
+50 silly addNameRange     '9.2.0',
+50 silly addNameRange     '8.9.1',
+50 silly addNameRange     '6.12.1',
+50 silly addNameRange     '8.9.2',
+50 silly addNameRange     '4.8.7',
+50 silly addNameRange     '6.12.2',
+50 silly addNameRange     '9.3.0',
+50 silly addNameRange     '8.9.4',
+50 silly addNameRange     '6.12.3',
+50 silly addNameRange     '9.4.0',
+50 silly addNameRange     '9.5.0',
+50 silly addNameRange     '6.13.0',
+50 silly addNameRange     '9.7.0',
+50 silly addNameRange     '9.6.0',
+50 silly addNameRange     '9.6.1',
+50 silly addNameRange     '8.10.0',
+50 silly addNameRange     '9.8.0',
+50 silly addNameRange     '9.9.0',
+50 silly addNameRange     '8.11.0',
+50 silly addNameRange     '6.14.0',
+50 silly addNameRange     '4.9.0',
+50 silly addNameRange     '9.10.0',
+50 silly addNameRange     '8.11.1',
+50 silly addNameRange     '4.9.1',
+50 silly addNameRange     '6.14.1',
+50 silly addNameRange     '9.10.1',
+50 silly addNameRange     '9.11.0',
+50 silly addNameRange     '10.0.0',
+50 silly addNameRange     '6.14.2',
+50 silly addNameRange     '6.11.5',
+50 silly addNameRange     '8.11.2',
+50 silly addNameRange     '10.1.0',
+50 silly addNameRange     '10.2.0',
+50 silly addNameRange     '10.3.0',
+50 silly addNameRange     '10.4.0',
+50 silly addNameRange     '8.11.3',
+50 silly addNameRange     '6.14.3',
+50 silly addNameRange     '9.11.2',
+50 silly addNameRange     '10.4.1',
+50 silly addNameRange     '10.5.0',
+50 silly addNameRange     '10.6.0',
+50 silly addNameRange     '10.7.0',
+50 silly addNameRange     '10.8.0',
+50 silly addNameRange     '8.11.4',
+50 silly addNameRange     '10.9.0',
+50 silly addNameRange     '6.14.4',
+50 silly addNameRange     '10.10.0',
+50 silly addNameRange     '8.12.0',
+50 silly addNameRange     '10.11.0',
+50 silly addNameRange     '10.12.0',
+50 silly addNameRange     '11.0.0',
+50 silly addNameRange     '10.13.0',
+50 silly addNameRange     '11.1.0',
+50 silly addNameRange     '8.13.0',
+50 silly addNameRange     '11.2.0',
+50 silly addNameRange     '6.15.1',
+50 silly addNameRange     '8.14.0',
+50 silly addNameRange     '10.14.0',
+50 silly addNameRange     '11.3.0',
+50 silly addNameRange     '11.4.0',
+50 silly addNameRange     '10.14.1',
+50 silly addNameRange     '11.5.0',
+50 silly addNameRange     '8.14.1',
+50 silly addNameRange     '10.14.2',
+50 silly addNameRange     '11.6.0',
+50 silly addNameRange     '10.15.0',
+50 silly addNameRange     '8.15.0',
+50 silly addNameRange     '6.16.0',
+50 silly addNameRange     '11.7.0',
+50 silly addNameRange     '11.8.0',
+50 silly addNameRange     '10.15.1',
+50 silly addNameRange     '11.9.0' ] ]
+51 silly addNamed node@11.9.0
+52 verbose addNamed "11.9.0" is a plain semver version for node
+53 silly mapToRegistry name node
+54 silly mapToRegistry using default registry
+55 silly mapToRegistry registry https://registry.npmjs.org/
+56 silly mapToRegistry uri https://registry.npmjs.org/node
+57 verbose addRemoteTarball https://registry.npmjs.org/node/-/node-11.9.0.tgz not in flight; adding
+58 verbose addRemoteTarball [ 'https://registry.npmjs.org/node/-/node-11.9.0.tgz',
+58 verbose addRemoteTarball   '1e92e3f9626fc06838cefcc7bdee5c2506e12663' ]
+59 info retry fetch attempt 1 at 16:41:29
+60 info attempt registry request try #1 at 16:41:29
+61 http fetch GET https://registry.npmjs.org/node/-/node-11.9.0.tgz
+62 http fetch 200 https://registry.npmjs.org/node/-/node-11.9.0.tgz
+63 silly fetchAndShaCheck shasum 1e92e3f9626fc06838cefcc7bdee5c2506e12663
+64 verbose addTmpTarball /var/folders/nk/fsdmtrvs2m99hfbhgtyrk13w0000gn/T/npm-1176-9c7e501a/registry.npmjs.org/node/-/node-11.9.0.tgz not in flight; adding
+65 verbose addTmpTarball already have metadata; skipping unpack for node@11.9.0
+66 silly cache afterAdd node@11.9.0
+67 verbose afterAdd /Users/jslee/.npm/node/11.9.0/package/package.json not in flight; writing
+68 verbose afterAdd /Users/jslee/.npm/node/11.9.0/package/package.json written
+69 silly fetchNamedPackageData node-bin-setup
+70 silly mapToRegistry name node-bin-setup
+71 silly mapToRegistry using default registry
+72 silly mapToRegistry registry https://registry.npmjs.org/
+73 silly mapToRegistry uri https://registry.npmjs.org/node-bin-setup
+74 verbose request uri https://registry.npmjs.org/node-bin-setup
+75 verbose request no auth needed
+76 info attempt registry request try #1 at 16:41:29
+77 http request GET https://registry.npmjs.org/node-bin-setup
+78 http 200 https://registry.npmjs.org/node-bin-setup
+79 verbose headers { date: 'Mon, 11 Feb 2019 07:41:30 GMT',
+79 verbose headers   'content-type': 'application/json; charset=UTF-8',
+79 verbose headers   'transfer-encoding': 'chunked',
+79 verbose headers   connection: 'keep-alive',
+79 verbose headers   'set-cookie': [ '__cfduid=df4d16639eb88d83ad50273f2aa89be7d1549870889; expires=Tue, 11-Feb-20 07:41:29 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+79 verbose headers   'cf-cache-status': 'REVALIDATED',
+79 verbose headers   'cache-control': 'max-age=300',
+79 verbose headers   'cf-ray': '4a752c656f64a16c-ICN',
+79 verbose headers   etag: 'W/"696d6ec470fda56a33885508a280edab"',
+79 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+79 verbose headers   'last-modified': 'Sun, 27 May 2018 09:55:03 GMT',
+79 verbose headers   vary: 'accept-encoding, accept',
+79 verbose headers   server: 'cloudflare',
+79 verbose headers   'content-encoding': 'gzip' }
+80 silly get cb [ 200,
+80 silly get   { date: 'Mon, 11 Feb 2019 07:41:30 GMT',
+80 silly get     'content-type': 'application/json; charset=UTF-8',
+80 silly get     'transfer-encoding': 'chunked',
+80 silly get     connection: 'keep-alive',
+80 silly get     'set-cookie': [ '__cfduid=df4d16639eb88d83ad50273f2aa89be7d1549870889; expires=Tue, 11-Feb-20 07:41:29 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+80 silly get     'cf-cache-status': 'REVALIDATED',
+80 silly get     'cache-control': 'max-age=300',
+80 silly get     'cf-ray': '4a752c656f64a16c-ICN',
+80 silly get     etag: 'W/"696d6ec470fda56a33885508a280edab"',
+80 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+80 silly get     'last-modified': 'Sun, 27 May 2018 09:55:03 GMT',
+80 silly get     vary: 'accept-encoding, accept',
+80 silly get     server: 'cloudflare',
+80 silly get     'content-encoding': 'gzip' } ]
+81 verbose get saving node-bin-setup to /Users/jslee/.npm/registry.npmjs.org/node-bin-setup/.cache.json
+82 silly resolveWithNewModule node-bin-setup@1.0.6 checking installable status
+83 silly cache add args [ 'node-bin-setup@^1.0.0', null ]
+84 verbose cache add spec node-bin-setup@^1.0.0
+85 silly cache add parsed spec Result {
+85 silly cache add   raw: 'node-bin-setup@^1.0.0',
+85 silly cache add   scope: null,
+85 silly cache add   name: 'node-bin-setup',
+85 silly cache add   rawSpec: '^1.0.0',
+85 silly cache add   spec: '>=1.0.0 <2.0.0',
+85 silly cache add   type: 'range' }
+86 silly addNamed node-bin-setup@>=1.0.0 <2.0.0
+87 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for node-bin-setup
+88 silly addNameRange { name: 'node-bin-setup',
+88 silly addNameRange   range: '>=1.0.0 <2.0.0',
+88 silly addNameRange   hasData: false }
+89 silly mapToRegistry name node-bin-setup
+90 silly mapToRegistry using default registry
+91 silly mapToRegistry registry https://registry.npmjs.org/
+92 silly mapToRegistry uri https://registry.npmjs.org/node-bin-setup
+93 verbose addNameRange registry:https://registry.npmjs.org/node-bin-setup not in flight; fetching
+94 verbose get https://registry.npmjs.org/node-bin-setup not expired, no request
+95 silly addNameRange number 2 { name: 'node-bin-setup',
+95 silly addNameRange   range: '>=1.0.0 <2.0.0',
+95 silly addNameRange   hasData: true }
+96 silly addNameRange versions [ 'node-bin-setup',
+96 silly addNameRange   [ '1.0.0', '1.0.1', '1.0.2', '1.0.3', '1.0.4', '1.0.6' ] ]
+97 silly addNamed node-bin-setup@1.0.6
+98 verbose addNamed "1.0.6" is a plain semver version for node-bin-setup
+99 silly mapToRegistry name node-bin-setup
+100 silly mapToRegistry using default registry
+101 silly mapToRegistry registry https://registry.npmjs.org/
+102 silly mapToRegistry uri https://registry.npmjs.org/node-bin-setup
+103 verbose addRemoteTarball https://registry.npmjs.org/node-bin-setup/-/node-bin-setup-1.0.6.tgz not in flight; adding
+104 verbose addRemoteTarball [ 'https://registry.npmjs.org/node-bin-setup/-/node-bin-setup-1.0.6.tgz',
+104 verbose addRemoteTarball   '4b5c9bb937ece702d7069b36ca78af4684677528' ]
+105 info retry fetch attempt 1 at 16:41:30
+106 info attempt registry request try #1 at 16:41:30
+107 http fetch GET https://registry.npmjs.org/node-bin-setup/-/node-bin-setup-1.0.6.tgz
+108 http fetch 200 https://registry.npmjs.org/node-bin-setup/-/node-bin-setup-1.0.6.tgz
+109 silly fetchAndShaCheck shasum 4b5c9bb937ece702d7069b36ca78af4684677528
+110 verbose addTmpTarball /var/folders/nk/fsdmtrvs2m99hfbhgtyrk13w0000gn/T/npm-1176-9c7e501a/registry.npmjs.org/node-bin-setup/-/node-bin-setup-1.0.6.tgz not in flight; adding
+111 verbose addTmpTarball already have metadata; skipping unpack for node-bin-setup@1.0.6
+112 silly cache afterAdd node-bin-setup@1.0.6
+113 verbose afterAdd /Users/jslee/.npm/node-bin-setup/1.0.6/package/package.json not in flight; writing
+114 verbose afterAdd /Users/jslee/.npm/node-bin-setup/1.0.6/package/package.json written
+115 silly loadAllDepsIntoIdealTree Finishing
+116 silly idealTree:prePrune siteA
+116 silly idealTree:prePrune ├── ajv@6.9.0
+116 silly idealTree:prePrune ├── asn1@0.2.4
+116 silly idealTree:prePrune ├── assert-plus@1.0.0
+116 silly idealTree:prePrune ├── asynckit@0.4.0
+116 silly idealTree:prePrune ├── aws-sign2@0.7.0
+116 silly idealTree:prePrune ├── aws4@1.8.0
+116 silly idealTree:prePrune ├── bcrypt-pbkdf@1.0.2
+116 silly idealTree:prePrune ├── caseless@0.12.0
+116 silly idealTree:prePrune ├── combined-stream@1.0.7
+116 silly idealTree:prePrune ├── core-util-is@1.0.2
+116 silly idealTree:prePrune ├── dashdash@1.14.1
+116 silly idealTree:prePrune ├── delayed-stream@1.0.0
+116 silly idealTree:prePrune ├── ecc-jsbn@0.1.2
+116 silly idealTree:prePrune ├── extend@3.0.2
+116 silly idealTree:prePrune ├── extsprintf@1.3.0
+116 silly idealTree:prePrune ├── fast-deep-equal@2.0.1
+116 silly idealTree:prePrune ├── fast-json-stable-stringify@2.0.0
+116 silly idealTree:prePrune ├── forever-agent@0.6.1
+116 silly idealTree:prePrune ├── form-data@2.3.3
+116 silly idealTree:prePrune ├── getpass@0.1.7
+116 silly idealTree:prePrune ├── har-schema@2.0.0
+116 silly idealTree:prePrune ├── har-validator@5.1.3
+116 silly idealTree:prePrune ├── http-signature@1.2.0
+116 silly idealTree:prePrune ├── is-typedarray@1.0.0
+116 silly idealTree:prePrune ├── isstream@0.1.2
+116 silly idealTree:prePrune ├── jsbn@0.1.1
+116 silly idealTree:prePrune ├── json-schema-traverse@0.4.1
+116 silly idealTree:prePrune ├── json-schema@0.2.3
+116 silly idealTree:prePrune ├── json-stringify-safe@5.0.1
+116 silly idealTree:prePrune ├── jsprim@1.4.1
+116 silly idealTree:prePrune ├── mime-db@1.37.0
+116 silly idealTree:prePrune ├── mime-types@2.1.21
+116 silly idealTree:prePrune ├── node-bin-setup@1.0.6
+116 silly idealTree:prePrune ├── node@11.9.0
+116 silly idealTree:prePrune ├── oauth-sign@0.9.0
+116 silly idealTree:prePrune ├── performance-now@2.1.0
+116 silly idealTree:prePrune ├── psl@1.1.31
+116 silly idealTree:prePrune ├── punycode@2.1.1
+116 silly idealTree:prePrune ├── qs@6.5.2
+116 silly idealTree:prePrune ├── request@2.88.0
+116 silly idealTree:prePrune ├── safe-buffer@5.1.2
+116 silly idealTree:prePrune ├── safer-buffer@2.1.2
+116 silly idealTree:prePrune ├── sshpk@1.16.1
+116 silly idealTree:prePrune ├─┬ tough-cookie@2.4.3
+116 silly idealTree:prePrune │ └── punycode@1.4.1
+116 silly idealTree:prePrune ├── tunnel-agent@0.6.0
+116 silly idealTree:prePrune ├── tweetnacl@0.14.5
+116 silly idealTree:prePrune ├── uri-js@4.2.2
+116 silly idealTree:prePrune ├── uuid@3.3.2
+116 silly idealTree:prePrune └── verror@1.10.0
+117 silly loadIdealTree Finishing
+118 silly currentTree siteA
+118 silly currentTree ├── ajv@6.9.0
+118 silly currentTree ├── asn1@0.2.4
+118 silly currentTree ├── assert-plus@1.0.0
+118 silly currentTree ├── asynckit@0.4.0
+118 silly currentTree ├── aws-sign2@0.7.0
+118 silly currentTree ├── aws4@1.8.0
+118 silly currentTree ├── bcrypt-pbkdf@1.0.2
+118 silly currentTree ├── caseless@0.12.0
+118 silly currentTree ├── combined-stream@1.0.7
+118 silly currentTree ├── core-util-is@1.0.2
+118 silly currentTree ├── dashdash@1.14.1
+118 silly currentTree ├── delayed-stream@1.0.0
+118 silly currentTree ├── ecc-jsbn@0.1.2
+118 silly currentTree ├── extend@3.0.2
+118 silly currentTree ├── extsprintf@1.3.0
+118 silly currentTree ├── fast-deep-equal@2.0.1
+118 silly currentTree ├── fast-json-stable-stringify@2.0.0
+118 silly currentTree ├── forever-agent@0.6.1
+118 silly currentTree ├── form-data@2.3.3
+118 silly currentTree ├── getpass@0.1.7
+118 silly currentTree ├── har-schema@2.0.0
+118 silly currentTree ├── har-validator@5.1.3
+118 silly currentTree ├── http-signature@1.2.0
+118 silly currentTree ├── is-typedarray@1.0.0
+118 silly currentTree ├── isstream@0.1.2
+118 silly currentTree ├── jsbn@0.1.1
+118 silly currentTree ├── json-schema-traverse@0.4.1
+118 silly currentTree ├── json-schema@0.2.3
+118 silly currentTree ├── json-stringify-safe@5.0.1
+118 silly currentTree ├── jsprim@1.4.1
+118 silly currentTree ├── mime-db@1.37.0
+118 silly currentTree ├── mime-types@2.1.21
+118 silly currentTree ├── oauth-sign@0.9.0
+118 silly currentTree ├── performance-now@2.1.0
+118 silly currentTree ├── psl@1.1.31
+118 silly currentTree ├── punycode@2.1.1
+118 silly currentTree ├── qs@6.5.2
+118 silly currentTree ├── request@2.88.0
+118 silly currentTree ├── safe-buffer@5.1.2
+118 silly currentTree ├── safer-buffer@2.1.2
+118 silly currentTree ├── sshpk@1.16.1
+118 silly currentTree ├─┬ tough-cookie@2.4.3
+118 silly currentTree │ └── punycode@1.4.1
+118 silly currentTree ├── tunnel-agent@0.6.0
+118 silly currentTree ├── tweetnacl@0.14.5
+118 silly currentTree ├── uri-js@4.2.2
+118 silly currentTree ├── uuid@3.3.2
+118 silly currentTree └── verror@1.10.0
+119 silly idealTree siteA
+119 silly idealTree ├── ajv@6.9.0
+119 silly idealTree ├── asn1@0.2.4
+119 silly idealTree ├── assert-plus@1.0.0
+119 silly idealTree ├── asynckit@0.4.0
+119 silly idealTree ├── aws-sign2@0.7.0
+119 silly idealTree ├── aws4@1.8.0
+119 silly idealTree ├── bcrypt-pbkdf@1.0.2
+119 silly idealTree ├── caseless@0.12.0
+119 silly idealTree ├── combined-stream@1.0.7
+119 silly idealTree ├── core-util-is@1.0.2
+119 silly idealTree ├── dashdash@1.14.1
+119 silly idealTree ├── delayed-stream@1.0.0
+119 silly idealTree ├── ecc-jsbn@0.1.2
+119 silly idealTree ├── extend@3.0.2
+119 silly idealTree ├── extsprintf@1.3.0
+119 silly idealTree ├── fast-deep-equal@2.0.1
+119 silly idealTree ├── fast-json-stable-stringify@2.0.0
+119 silly idealTree ├── forever-agent@0.6.1
+119 silly idealTree ├── form-data@2.3.3
+119 silly idealTree ├── getpass@0.1.7
+119 silly idealTree ├── har-schema@2.0.0
+119 silly idealTree ├── har-validator@5.1.3
+119 silly idealTree ├── http-signature@1.2.0
+119 silly idealTree ├── is-typedarray@1.0.0
+119 silly idealTree ├── isstream@0.1.2
+119 silly idealTree ├── jsbn@0.1.1
+119 silly idealTree ├── json-schema-traverse@0.4.1
+119 silly idealTree ├── json-schema@0.2.3
+119 silly idealTree ├── json-stringify-safe@5.0.1
+119 silly idealTree ├── jsprim@1.4.1
+119 silly idealTree ├── mime-db@1.37.0
+119 silly idealTree ├── mime-types@2.1.21
+119 silly idealTree ├── node-bin-setup@1.0.6
+119 silly idealTree ├── node@11.9.0
+119 silly idealTree ├── oauth-sign@0.9.0
+119 silly idealTree ├── performance-now@2.1.0
+119 silly idealTree ├── psl@1.1.31
+119 silly idealTree ├── punycode@2.1.1
+119 silly idealTree ├── qs@6.5.2
+119 silly idealTree ├── request@2.88.0
+119 silly idealTree ├── safe-buffer@5.1.2
+119 silly idealTree ├── safer-buffer@2.1.2
+119 silly idealTree ├── sshpk@1.16.1
+119 silly idealTree ├─┬ tough-cookie@2.4.3
+119 silly idealTree │ └── punycode@1.4.1
+119 silly idealTree ├── tunnel-agent@0.6.0
+119 silly idealTree ├── tweetnacl@0.14.5
+119 silly idealTree ├── uri-js@4.2.2
+119 silly idealTree ├── uuid@3.3.2
+119 silly idealTree └── verror@1.10.0
+120 silly generateActionsToTake Starting
+121 silly install generateActionsToTake
+122 silly generateActionsToTake Finishing
+123 silly diffTrees action count 2
+124 silly diffTrees add node-bin-setup@1.0.6
+125 silly diffTrees add node@11.9.0
+126 silly decomposeActions action count 16
+127 silly decomposeActions fetch node-bin-setup@1.0.6
+128 silly decomposeActions extract node-bin-setup@1.0.6
+129 silly decomposeActions preinstall node-bin-setup@1.0.6
+130 silly decomposeActions build node-bin-setup@1.0.6
+131 silly decomposeActions install node-bin-setup@1.0.6
+132 silly decomposeActions postinstall node-bin-setup@1.0.6
+133 silly decomposeActions test node-bin-setup@1.0.6
+134 silly decomposeActions finalize node-bin-setup@1.0.6
+135 silly decomposeActions fetch node@11.9.0
+136 silly decomposeActions extract node@11.9.0
+137 silly decomposeActions preinstall node@11.9.0
+138 silly decomposeActions build node@11.9.0
+139 silly decomposeActions install node@11.9.0
+140 silly decomposeActions postinstall node@11.9.0
+141 silly decomposeActions test node@11.9.0
+142 silly decomposeActions finalize node@11.9.0
+143 silly executeActions Starting
+144 silly install executeActions
+145 silly doSerial global-install 0
+146 silly doParallel fetch 2
+147 verbose lock using /Users/jslee/.npm/_locks/staging-744cf6f8fd59db16.lock for /Users/jslee/work/Django/siteA/node_modules/.staging
+148 silly doParallel extract 2
+149 silly extract node-bin-setup@1.0.6
+150 silly extract node@11.9.0
+151 verbose unbuild node_modules/.staging/node-bin-setup-dc7ea88cf2e7aa597c902dc279175206
+152 silly gentlyRm /Users/jslee/work/Django/siteA/node_modules/.staging/node-bin-setup-dc7ea88cf2e7aa597c902dc279175206 is being purged from base /Users/jslee/work/Django/siteA
+153 verbose unbuild node_modules/.staging/node-ba398f3bddd839ae584c60c78555ce58
+154 verbose gentlyRm don't care about contents; nuking /Users/jslee/work/Django/siteA/node_modules/.staging/node-bin-setup-dc7ea88cf2e7aa597c902dc279175206
+155 verbose tar unpack /Users/jslee/.npm/node-bin-setup/1.0.6/package.tgz
+156 verbose tar unpacking to /Users/jslee/work/Django/siteA/node_modules/.staging/node-bin-setup-dc7ea88cf2e7aa597c902dc279175206
+157 silly gentlyRm /Users/jslee/work/Django/siteA/node_modules/.staging/node-bin-setup-dc7ea88cf2e7aa597c902dc279175206 is being purged
+158 silly gentlyRm /Users/jslee/work/Django/siteA/node_modules/.staging/node-ba398f3bddd839ae584c60c78555ce58 is being purged from base /Users/jslee/work/Django/siteA
+159 verbose gentlyRm don't care about contents; nuking /Users/jslee/work/Django/siteA/node_modules/.staging/node-bin-setup-dc7ea88cf2e7aa597c902dc279175206
+160 verbose gentlyRm don't care about contents; nuking /Users/jslee/work/Django/siteA/node_modules/.staging/node-ba398f3bddd839ae584c60c78555ce58
+161 silly gunzTarPerm modes [ '755', '644' ]
+162 verbose tar unpack /Users/jslee/.npm/node/11.9.0/package.tgz
+163 verbose tar unpacking to /Users/jslee/work/Django/siteA/node_modules/.staging/node-ba398f3bddd839ae584c60c78555ce58
+164 silly gentlyRm /Users/jslee/work/Django/siteA/node_modules/.staging/node-ba398f3bddd839ae584c60c78555ce58 is being purged
+165 verbose gentlyRm don't care about contents; nuking /Users/jslee/work/Django/siteA/node_modules/.staging/node-ba398f3bddd839ae584c60c78555ce58
+166 silly gunzTarPerm modes [ '755', '644' ]
+167 silly gunzTarPerm extractEntry package.json
+168 silly gunzTarPerm extractEntry package.json
+169 silly gunzTarPerm extractEntry index.js
+170 silly gunzTarPerm extractEntry installArchSpecificPackage.js
+171 silly gunzTarPerm extractEntry README.md
+172 silly doParallel preinstall 2
+173 silly preinstall node-bin-setup@1.0.6 /Users/jslee/work/Django/siteA/node_modules/.staging/node-bin-setup-dc7ea88cf2e7aa597c902dc279175206
+174 info lifecycle node-bin-setup@1.0.6~preinstall: node-bin-setup@1.0.6
+175 silly preinstall node@11.9.0 /Users/jslee/work/Django/siteA/node_modules/.staging/node-ba398f3bddd839ae584c60c78555ce58
+176 info lifecycle node@11.9.0~preinstall: node@11.9.0
+177 silly lifecycle node-bin-setup@1.0.6~preinstall: no script for preinstall, continuing
+178 verbose lifecycle node@11.9.0~preinstall: unsafe-perm in lifecycle true
+179 verbose lifecycle node@11.9.0~preinstall: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/jslee/work/Django/siteA/node_modules/.staging/node-ba398f3bddd839ae584c60c78555ce58/node_modules/.bin:/Users/jslee/work/Django/siteA/node_modules/.bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:./:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/TeX/texbin:/Developer/Panda3D/bin:/usr/local/git/bin
+180 verbose lifecycle node@11.9.0~preinstall: CWD: /Users/jslee/work/Django/siteA/node_modules/.staging/node-ba398f3bddd839ae584c60c78555ce58
+181 silly lifecycle node@11.9.0~preinstall: Args: [ '-c', 'node installArchSpecificPackage' ]
+182 silly lifecycle node@11.9.0~preinstall: Returned: code: 1  signal: null
+183 info lifecycle node@11.9.0~preinstall: Failed to exec preinstall script
+184 verbose unlock done using /Users/jslee/.npm/_locks/staging-744cf6f8fd59db16.lock for /Users/jslee/work/Django/siteA/node_modules/.staging
+185 silly rollbackFailedOptional Starting
+186 silly rollbackFailedOptional Finishing
+187 silly runTopLevelLifecycles Starting
+188 silly runTopLevelLifecycles Finishing
+189 silly install printInstalled
+190 warn ENOENT ENOENT: no such file or directory, open '/Users/jslee/work/Django/siteA/package.json'
+191 warn EPACKAGEJSON siteA No description
+192 warn EPACKAGEJSON siteA No repository field.
+193 warn EPACKAGEJSON siteA No README data
+194 warn EPACKAGEJSON siteA No license field.
+195 verbose stack Error: node@11.9.0 preinstall: `node installArchSpecificPackage`
+195 verbose stack Exit status 1
+195 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:232:16)
+195 verbose stack     at emitTwo (events.js:87:13)
+195 verbose stack     at EventEmitter.emit (events.js:172:7)
+195 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+195 verbose stack     at emitTwo (events.js:87:13)
+195 verbose stack     at ChildProcess.emit (events.js:172:7)
+195 verbose stack     at maybeClose (internal/child_process.js:818:16)
+195 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+196 verbose pkgid node@11.9.0
+197 verbose cwd /Users/jslee/work/Django/siteA
+198 error Darwin 18.2.0
+199 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "node"
+200 error node v5.1.0
+201 error npm  v3.3.12
+202 error code ELIFECYCLE
+203 error node@11.9.0 preinstall: `node installArchSpecificPackage`
+203 error Exit status 1
+204 error Failed at the node@11.9.0 preinstall script 'node installArchSpecificPackage'.
+204 error Make sure you have the latest version of node.js and npm installed.
+204 error If you do, this is most likely a problem with the node package,
+204 error not with npm itself.
+204 error Tell the author that this fails on your system:
+204 error     node installArchSpecificPackage
+204 error You can get their info via:
+204 error     npm owner ls node
+204 error There is likely additional logging output above.
+205 verbose exit [ 1, true ]

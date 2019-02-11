@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 #    'polls.apps.PollsConfig',
 #    'books.apps.BooksConfig',
     'chat.apps.ChatConfig',
+    'mypharm.apps.MypharmConfig',
 ]
 
 MIDDLEWARE = [
