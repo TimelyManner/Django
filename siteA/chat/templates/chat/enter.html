@@ -19,15 +19,14 @@
 			}
 			
 			div.chat {
-				display: block;
 				overflow-y:auto;
 				width: 300px;
 				height: 150px;
 				border-style: solid;
 				border-color: yellow;
 				border-width: 1px;
-				margin: 5px;
-				padding: 5px;
+				margin: 0px;
+				padding: 2px;
 				background-color: lightyellow;
 				font-size: 10px;
 			}
@@ -43,6 +42,20 @@
 		</form>		 		
 				
 	{% endif %}
+	
+		<script>
+			var f_adapt = function() {
+				var tar = $('#talk_area');
+				var h_article = $('article').height();
+				tar.height(h_article-$('#input_text').height());
+				tar.width($('article').width());
+				tar.scrollTop(tar.height());
+			}
+			
+			$(document).resize(f_adapt);	
+			$(document).ready(f_adapt);
+
+		</script>
 <!-- 
 		<p id='nickname' hidden> {{user.nickname_text}}</p>
 		<script>
