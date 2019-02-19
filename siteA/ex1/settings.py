@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 #    'books.apps.BooksConfig',
     'chat.apps.ChatConfig',
     'mypharm.apps.MypharmConfig',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'www_dir', 'static')
+
+# for channels
+ASGI_APPLICATION = "ex1.routing.application"    
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}

@@ -32,11 +32,10 @@
 			}
 		</style>
 				
-		<div id='talk_area' class='chat'> {{msg|safe}} </div>
+		<div id='talk_area' class='chat'> </div>
 		
-		<form action="{% url 'chat:talk' pk=chat_room.id chatter_id=user.id msg=form.input_text.value %}" method="post">  
+		<form id='myform' action="{% url 'chat:talk' pk=chat_room.id chatter_id=user.id %}" method="post">  
 			{% csrf_token %}
-<!-- 		{{form.talk_area}}<br> -->
 			{{form.input_text}}
 			<input type='submit' value='Send'>
 		</form>		 		
@@ -44,6 +43,43 @@
 	{% endif %}
 	
 		<script>
+		    var chatSocket = new WebSocket(
+			        'ws://' + window.location.host +
+			        '/ws/chat/' + "{{chat_room.id}}" + '/' + "{{user.id}}" + '/');
+		
+		    chatSocket.onmessage = function(e) {
+		        var data = JSON.parse(e.data);
+		        var message = data['message'];
+		        var talkarea = $('#talk_area');    
+		        talkarea.html( talkarea.html() + message + '<br>');
+		        var tar = $('#talk_area');
+		        tar.scrollTop(tar.height());
+		    };
+	
+		    chatSocket.onclose = function(e) {
+		        console.error('Chat socket closed unexpectedly');
+		    };
+		
+			function f_send(message) {
+				chatSocket.send(JSON.stringify({
+		            'message': message,
+		            'user': "{{user.id}}"
+		        }));
+				
+				var tar = $('#talk_area');
+		        tar.scrollTop(tar.height());
+			} 
+		    
+			$('#myform').submit( function () {return false;} );
+			$('#input_text').keydown( function (e) {
+				if( e.which == 13 ) {
+					f_send($(this).val());
+					$(this).val('');
+					$(this).focus();
+					e.preventDefault();
+				}
+			});
+			
 			var f_adapt = function() {
 				var tar = $('#talk_area');
 				var h_article = $('article').height();
@@ -51,37 +87,10 @@
 				tar.width($('article').width());
 				tar.scrollTop(tar.height());
 			}
-			
-			$(document).resize(f_adapt);	
-			$(document).ready(f_adapt);
-			
-			setInterval(function () {
-				window.location.reload(true);
-			}, 1500);
+			$(document).resize(f_adapt);
+			$(document).ready(f_adapt);	
 
+			console.log('enter.html: script passes');
 		</script>
-<!-- 
-		<p id='nickname' hidden> {{user.nickname_text}}</p>
-		<script>
-			$(document).ready( function () {
-				var f = function () {
-					var nickname = $('#nickname').text();
-					var input = $('#input_text');					
-					var talk = $('#talk_area');
-					talk.val(talk.val()+ nickname + ': '+input.val()+'\n');
-					input.val('');					
-				}
-				
-				$('#send_button').click(f);
-				$('#input_text').keydown( function(event){				
-					if ( event.which == 13 ) {
-						f();
-						event.preventDefault();
-					} 				
-				});
-			});
-		</script>	
- -->
-
 
 {% endblock %}

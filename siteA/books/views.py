@@ -16,7 +16,6 @@ class BooksModelView(TemplateView):
         print(context)
         return context
     
-    
 class BookList(ListView):    
     model = Book
     

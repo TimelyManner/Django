@@ -9,7 +9,7 @@ async def hello():
     async with websockets.connect(
             'ws://localhost:8765') as websocket:
         name = input("What's your name? ")
-        print(f"< {name}")        
+        print(f"< {name}")
         await websocket.send(name)        
         greeting = await websocket.recv()
         print(f"> {greeting}")
