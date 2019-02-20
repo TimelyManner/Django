@@ -1,8 +1,9 @@
 from channels.generic.websocket import AsyncWebsocketConsumer
-#from asgiref.sync import async_to_sync
+# from asgiref.sync import async_to_sync
 import json
 from chat import models
 import datetime
+
 
 class ChatChannel(AsyncWebsocketConsumer):
     talk_backlog = dict(str())
@@ -36,12 +37,20 @@ class ChatChannel(AsyncWebsocketConsumer):
         self.room_id = self.scope['url_route']['kwargs']['room_id']
         self.user_id = self.scope['url_route']['kwargs']['user_id']
  
-        user = models.User.objects.all().get(pk=self.user_id)
+        user = models.User.objects.all().get(pk=self.user_id)        
         message = f'Bye~ <b>{user.nickname_text}</b> has left!'
+        is_owner = user.is_owner
         user.delete()     
+        
         ch = models.Chatroom.objects.all().get(pk=self.room_id)
         if ch.user_set.count() == 0:
-            ch.delete()   
+            ch.delete()
+        elif is_owner:
+            u = ch.user_set.first();
+            u.is_owner = True 
+            u.save()
+            print('----->')
+             
         
         await self.channel_layer.group_send(
             self.room_group_id,
@@ -69,7 +78,7 @@ class ChatChannel(AsyncWebsocketConsumer):
         except KeyError:
             self.talk_backlog[self.room_group_id] = ''
             
-        #print(f'talk = "{self.talk_backlog[self.room_group_id]}"')
+        # print(f'talk = "{self.talk_backlog[self.room_group_id]}"')
         
         # Send message to room group
         await self.channel_layer.group_send(
@@ -82,9 +91,15 @@ class ChatChannel(AsyncWebsocketConsumer):
 
     def get_chatters(self, id):
         chatroom = models.Chatroom.objects.all().get(pk=id)
-        chatter_list = [u.nickname_text + '<br>' for u in chatroom.user_set.all()]
+        chatter_list = []
+        
+        for u in chatroom.user_set.all():
+            if u.is_owner:
+                chatter_list.append('['+u.nickname_text+']<br>')
+            else:
+                chatter_list.append(u.nickname_text+'<br>')
         return chatter_list
-    
+      
     # Receive message from room group
     async def chat_message(self, event):
         message = event['message']
@@ -95,5 +110,4 @@ class ChatChannel(AsyncWebsocketConsumer):
             'message': message,
             'chatters': chatter_list
         }))
-        
         
