@@ -1,26 +1,29 @@
-from channels.generic.websocket import WebsocketConsumer
-from asgiref.sync import async_to_sync
+from channels.generic.websocket import AsyncWebsocketConsumer
+#from asgiref.sync import async_to_sync
 import json
 from chat import models
+import datetime
 
-class ChatChannel(WebsocketConsumer):
+class ChatChannel(AsyncWebsocketConsumer):
     talk_backlog = dict(str())
-    
-    def connect(self):
+   
+    async def connect(self):
         self.room_id = self.scope['url_route']['kwargs']['room_id']
         self.user_id = self.scope['url_route']['kwargs']['user_id']
         self.room_group_id = 'chat_%s' % self.room_id
-
+        user = models.User.objects.all().get(pk=self.user_id)        
+        cur_time = datetime.datetime.now()
+        message = f'Welcome~ <b>{user.nickname_text}</b> has joined at ({cur_time})'
+        
         # Join room group
-        async_to_sync(self.channel_layer.group_add)(
+        await self.channel_layer.group_add(
             self.room_group_id,
             self.channel_name
         )
 
-        self.accept()
-        user = models.User.objects.all().get(pk=self.user_id)
-        message = f'Welcome~ <b>{user.nickname_text}</b> has joined!'
-        async_to_sync(self.channel_layer.group_send)(
+        await self.accept()
+
+        await self.channel_layer.group_send(
             self.room_group_id,
             {
                 'type': 'chat_message',
@@ -28,11 +31,19 @@ class ChatChannel(WebsocketConsumer):
             }
         )
 
-    def disconnect(self, close_code):
+    async def disconnect(self, close_code):
         # Leave room group
+        self.room_id = self.scope['url_route']['kwargs']['room_id']
+        self.user_id = self.scope['url_route']['kwargs']['user_id']
+ 
         user = models.User.objects.all().get(pk=self.user_id)
         message = f'Bye~ <b>{user.nickname_text}</b> has left!'
-        async_to_sync(self.channel_layer.group_send)(
+        user.delete()     
+        ch = models.Chatroom.objects.all().get(pk=self.room_id)
+        if ch.user_set.count() == 0:
+            ch.delete()   
+        
+        await self.channel_layer.group_send(
             self.room_group_id,
             {
                 'type': 'chat_message',
@@ -40,28 +51,28 @@ class ChatChannel(WebsocketConsumer):
             }
         )
         
-        async_to_sync(self.channel_layer.group_discard)(
+        await self.channel_layer.group_discard(
             self.room_group_id,
             self.channel_name
         )
 
     # Receive message from WebSocket
-    def receive(self, text_data):
+    async def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
         user_id = text_data_json['user']
         user = models.User.objects.all().get(pk=user_id)
-        message = f'<b>{user.nickname_text}</b> : {message} '
+        message = f'<b>{user.nickname_text}</b> : {message}'
 
         try:
             self.talk_backlog[self.room_group_id] = self.talk_backlog[self.room_group_id] + message
         except KeyError:
             self.talk_backlog[self.room_group_id] = ''
             
-        print(f'talk = "{self.talk_backlog[self.room_group_id]}"')
+        #print(f'talk = "{self.talk_backlog[self.room_group_id]}"')
         
         # Send message to room group
-        async_to_sync(self.channel_layer.group_send)(
+        await self.channel_layer.group_send(
             self.room_group_id,
             {
                 'type': 'chat_message',
@@ -69,14 +80,20 @@ class ChatChannel(WebsocketConsumer):
             }
         )
 
-
+    def get_chatters(self, id):
+        chatroom = models.Chatroom.objects.all().get(pk=id)
+        chatter_list = [u.nickname_text + '<br>' for u in chatroom.user_set.all()]
+        return chatter_list
+    
     # Receive message from room group
-    def chat_message(self, event):
+    async def chat_message(self, event):
         message = event['message']
+        chatter_list = self.get_chatters(self.room_id)
 
         # Send message to WebSocket
-        self.send(text_data=json.dumps({
-            'message': message
+        await self.send(text_data=json.dumps({
+            'message': message,
+            'chatters': chatter_list
         }))
         
         

@@ -1,5 +1,6 @@
 {% extends "chat/layout.html" %}
-
+{% block aside %}
+{% endblock %}
 {% block article %}
 	<p> Fill the fields below, then press the "create and talk" button </p>	
 	<form action="{% url 'chat:open' %}" method="post">
@@ -7,9 +8,9 @@
 		<hr>
 		<ul>
 			<li>Chatting Theme:<br> 
-			<input type="text" name="theme" value=""/> </li>
+			<input type="text" name="theme" value="" required/> </li>
 			<li>Your Nickname:<br> 
-			<input type="text" name="nickname" value=""/> </li>
+			<input type="text" name="nickname" value="" required/> </li>
 		</ul>
 		<hr>		
 		<input type="submit" value="open and talk" />

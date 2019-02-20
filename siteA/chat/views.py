@@ -20,28 +20,40 @@ class IndexView(generic.TemplateView):
     def get(self, request, *args, **kwargs ):        
         chatrooms = models.Chatroom.objects.all()        
         chat_list = []
+        msg = kwargs.get('msg',None)
         
         for cr in chatrooms:
             chat_info = ChatInfo()             
             chat_info.title = cr.title_text     
-            cur_time = datetime.datetime.now()
+            cur_time = datetime.datetime.utcnow()
             open_time = cr.created_date.replace(tzinfo=None)
             chat_info.time = cur_time - open_time 
             chatters = models.User.objects.filter(chatroom=cr.id)
             chat_info.num_chatters = len(chatters.all())
+            chat_info.id = cr.id
             try:
-                chat_info.owner = chatters.get(is_owner=True)
+                owners = chatters.filter(is_owner=True).order_by('-created_date')
+                chat_info.owner = owners.first()                   
             except ObjectDoesNotExist:
-                chat_info.owner = None
+                chat_info.owner = 'TBD'
+                
             chat_list.append(chat_info)                                   
-        return render(request, self.template_name, {'chat_list':chat_list})                
+        return render(request, self.template_name, {'chat_list':chat_list, 'msg':msg})                
         
     def post(self, request, *args, **kwargs ):
-        selected_choice = request.POST['choice']        
-        input_name = request.POST['nickname']
-        print(f'selected: {selected_choice}, nickname: {input_name}') 
-        
-        return HttpResponseRedirect(reverse('chat:index'))
+        try:
+            ch_id = request.POST['choice']    
+            nickname = request.POST['nickname']
+            ch = models.Chatroom.objects.all().get(pk=ch_id)
+            user = models.User(nickname_text=nickname, created_date=datetime.datetime.now(), 
+                                       chatroom=ch, is_owner=False)
+            user.save()
+            return HttpResponseRedirect(reverse('chat:talk',args=(ch_id, user.id)))
+        except KeyError:
+            return HttpResponseRedirect(reverse('chat:join',args=('Sorry, we have a wrong input form.',)))
+        except ObjectDoesNotExist:
+            return HttpResponseRedirect(reverse('chat:join',args=('Sorry, the chatroom you tried in has deleted.',)))
+
     
 class OpenView(generic.TemplateView):
     template_name = 'chat/open.html'
@@ -84,9 +96,12 @@ class EnterView(generic.FormView):
         except KeyError:    # when a chatter comes in        
             error_msg = None
             chatroom = models.Chatroom.objects.all().get(pk=kwargs['pk'])
-            user = models.User.objects.all().get(pk=kwargs['chatter_id'])            
+            user = models.User.objects.all().get(pk=kwargs['chatter_id'])
+            user.chatroom = chatroom
+            user.save()
             form = self.form_class()  
-  
+
+      
         return HttpResponseRedirect(reverse('chat:talk',args=(kwargs['pk'],kwargs['chatter_id'])))
     
     def post(self, request, *args, **kwargs ):

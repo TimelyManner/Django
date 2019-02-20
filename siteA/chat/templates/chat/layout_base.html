@@ -44,10 +44,17 @@ nav ul li {
   padding: 5px;
 }
 
+aside {
+  float: left;
+  padding: 5px;
+  width: 10%;
+/*  background-color: #CCFFCC; */
+}
+
 article {
   float: left;
   padding: 5px;
-  width: 90%;
+  width: 80%;
 /*  background-color: #CCFFCC; */
 }
 
@@ -147,6 +154,12 @@ tr:nth-child(even) {
     <p> Your article's content ...</p>
   {% endblock %}
   </article> 
+  
+	<aside>
+  {% block aside %}
+    <h1>aside...</h1>
+  {% endblock %}	
+	</aside>
  </section>
  
 <footer>

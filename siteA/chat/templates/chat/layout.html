@@ -13,14 +13,12 @@ ul {
   background: #3399ff;
   padding: 20px;
 }
-
 </style>
 
 {% block nav %}	
     <ul>
-      <li><a href="{% url 'chat:index' %}">Home</a> </li>
-      <li><a href="{% url 'chat:open' %}">Open</a> </li>
-      <li><a href="{% url 'chat:join' %}">Join</a> </li> 
+      <li><a href="{% url 'chat:join' %}" onClick="window.location.reload()">Join</a> </li> 
+      <li><a href="{% url 'chat:open' %}" onClick="window.location.reload()">Open</a> </li>
     </ul>
 {% endblock %}
 
